@@ -2,10 +2,13 @@
 
 require "date"
 
-date = DateTime.parse("2014-01-01 10:00:00")
+gb = ARGV[0].to_i
 
-5.times do |i|
-  i += 20
+rep = (gb / 0.075).ceil
+
+date = DateTime.parse("2014-01-01 10:00:00")
+puts "generating #{rep} builds for #{gb}GB"
+rep.times do |i|
   date += 10
   puts "Generating build ##{i}..."
   system %{script/build}
